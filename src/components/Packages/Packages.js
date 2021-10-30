@@ -16,7 +16,7 @@ const Packages = () => {
            {
                 packages.slice(0,6).map(pack => <Package
                     key= {pack.id}
-                    package={pack}
+                    packages={pack}
                 ></Package>)
             }
            </div>

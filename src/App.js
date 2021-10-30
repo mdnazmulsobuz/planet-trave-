@@ -4,15 +4,18 @@ import AddPackage from './components/AddPackage/AddPackage';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
-import Login from './components/Login/Login';
+import Login from './components/Login/Login/Login';
+import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 import ManagePackage from './components/ManagePackage/ManagePackage';
 import MyOrder from './components/MyOrder/MyOrder';
 import NotFound from './components/NotFound/NotFound';
 import OurPackage from './components/OurPackage/OurPackage';
+import AuthProvider from './contexts/AuthProvider';
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <BrowserRouter>
         <Header></Header>
         <Switch>
@@ -25,15 +28,15 @@ function App() {
           <Route  path='/package'>
             <OurPackage></OurPackage>
           </Route>
-          <Route  path='/managepackage'>
-            <ManagePackage></ManagePackage>
-          </Route>
-          <Route  path='/addpackage'>
+          <PrivateRoute  path='/addpackage'>
             <AddPackage></AddPackage>
-          </Route>
-          <Route  path='/myorder'>
+          </PrivateRoute>
+          <PrivateRoute  path='/managepackage'>
+            <ManagePackage></ManagePackage>
+          </PrivateRoute>
+          <PrivateRoute  path='/myorder'>
             <MyOrder></MyOrder>
-          </Route>
+          </PrivateRoute>
           <Route  path='/login'>
             <Login></Login>
           </Route>
@@ -43,6 +46,7 @@ function App() {
         </Switch>
         <Footer></Footer>
       </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
