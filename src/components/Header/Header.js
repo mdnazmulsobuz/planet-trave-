@@ -16,7 +16,7 @@ const Header = () => {
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
                         <Nav.Link as={Link} to="/package">Packages</Nav.Link>
                         <Nav.Link as={Link} to="/addpackage">Add Package</Nav.Link>
-                        <Nav.Link as={Link} to="/managepackage">Manage Package</Nav.Link>
+                        <Nav.Link as={Link} to="/managepackage">Manage Package</Nav.Link> 
                         <Nav.Link as={Link} to="/myorder">My Order</Nav.Link>
                         {user.email ?
                         <Nav.Link onClick={logOut} bg='light'>Logout</Nav.Link>:

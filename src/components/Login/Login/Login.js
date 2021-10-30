@@ -22,7 +22,7 @@ const Login = () => {
     return (
         <div className='pt-5 my-5'>
             <h2 className=' my-5'>Please Login Here!</h2>
-            <form onSubmit="">
+            <form>
                 <Button onClick={handleGogleLogin} className='btn-regular 3y-5 signin-button'>Google SignIn</Button>
             </form>
         </div>
