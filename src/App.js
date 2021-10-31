@@ -6,10 +6,10 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login/Login';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
-import ManagePackage from './components/ManagePackage/ManagePackage';
+import ManageOrder from './components/ManageOrder/ManageOrder';
 import MyOrder from './components/MyOrder/MyOrder';
 import NotFound from './components/NotFound/NotFound';
-import OurPackage from './components/OurPackage/OurPackage';
+import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 import AuthProvider from './contexts/AuthProvider';
 
 function App() {
@@ -25,20 +25,19 @@ function App() {
           <Route  path='/home'>
             <Home></Home>
           </Route>
-          <Route  path='/package'>
-            <OurPackage></OurPackage>
-          </Route>
           <PrivateRoute  path='/addpackage'>
             <AddPackage></AddPackage>
           </PrivateRoute>
-          <PrivateRoute  path='/managepackage'>
-            <ManagePackage></ManagePackage>
+          <PrivateRoute  path='/manageorder'>
+            <ManageOrder></ManageOrder>
+          </PrivateRoute>
+          <PrivateRoute  path='/placeorder/:packageId'>
+           <PlaceOrder></PlaceOrder>
           </PrivateRoute>
           <PrivateRoute  path='/myorder'>
-            <MyOrder></MyOrder>
+           <MyOrder></MyOrder>
           </PrivateRoute>
           <Route  path='/login'>
-             
             <Login></Login>
           </Route>
           <Route  path='*'>

@@ -1,8 +1,8 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
-import Packages from '../Packages/Packages';
 import Subscribe from '../Subscribe/Subscribe';
 import Testimonial from '../Testimonial/Testimonial';
+import Packages from './Packages/Packages';
 
 const Home = () => {
     return (
