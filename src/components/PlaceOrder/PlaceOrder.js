@@ -7,25 +7,33 @@ import useAuth from '../../hooks/useAuth';
 const PlaceOrder = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {user} = useAuth();
+    const {packageId} = useParams();
+    const [pack, setPack] = useState({});
     const onSubmit = data => {
-
+    const orderData ={
+        name: pack.title,
+        price: pack.price,
+        user: data.name,
+        email: data.email,
+        city: data.city,
+        phone: data.phone
+        }
         fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(orderData)
         })
         .then(res=>res.json())
         .then(result =>{
-            console.log(result);
+            
         })
     };
-    const {packageId} = useParams();
-    const [pack, setPack] = useState({});
+  
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/packages/${packageId}`)
+        fetch(`https://hidden-scrubland-53724.herokuapp.com/packages/${packageId}`)
         .then(res=>res.json())
         .then(data =>setPack(data));
 

@@ -4,7 +4,7 @@ import Package from '../Package/Package';
 const Packages = () => {
     const [packages, setPackages] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/packages/')
+        fetch('https://hidden-scrubland-53724.herokuapp.com/packages/')
         .then(res=>res.json())
         .then(data =>setPackages(data));
     }, [])
@@ -13,7 +13,7 @@ const Packages = () => {
             <h2>Select Your Best Package <br />For Your Travel</h2>
             <div className='row'>
                 {
-                    packages.map(p =><Package
+                    packages.slice(0,6).map(p =><Package
                     key={p._id}
                     packages={p}
                     ></Package>)

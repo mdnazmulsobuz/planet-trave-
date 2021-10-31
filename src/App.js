@@ -28,13 +28,13 @@ function App() {
           <PrivateRoute  path='/addpackage'>
             <AddPackage></AddPackage>
           </PrivateRoute>
-          <PrivateRoute  path='/manageorder'>
+          <PrivateRoute path='/manageorder'>
             <ManageOrder></ManageOrder>
           </PrivateRoute>
-          <PrivateRoute  path='/placeorder/:packageId'>
+          <PrivateRoute path='/placeorder/:packageId'>
            <PlaceOrder></PlaceOrder>
           </PrivateRoute>
-          <PrivateRoute  path='/myorder'>
+          <PrivateRoute  path='/orders'>
            <MyOrder></MyOrder>
           </PrivateRoute>
           <Route  path='/login'>
