@@ -21,7 +21,6 @@ const Header = () => {
                             <Nav.Link as={Link} to="/orders">My Order</Nav.Link>
                             <Nav.Link onClick={logOut} bg='light'>Logout</Nav.Link>
                             <Button className='btn btn-light'>{user.displayName}</Button>
-                            :
                             </>
                           ):(
                             <Nav.Link as={Link} to='/login'>Login</Nav.Link>

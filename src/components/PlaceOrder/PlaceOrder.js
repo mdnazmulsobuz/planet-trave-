@@ -2,12 +2,14 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
 const PlaceOrder = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const {user} = useAuth();
+    const histroy = useHistory();
+    const redirect_uri = '/orders';
     const {packageId} = useParams();
     const [pack, setPack] = useState({});
     const onSubmit = data => {
@@ -23,7 +25,7 @@ const PlaceOrder = () => {
         .then(res =>{
             if(res.data.insertedId){
                 alert('Order Submitted. Sucessfully Added On My Order.');
-                reset();
+                histroy.push(redirect_uri);
             }
         })
     };
