@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 
 const MyOrder = () => {
-
+    const {user } = useAuth();
     const [orders, setOrders] = useState([]);
-
-    const email = "sobuz287@gmail.com"; 
     
     useEffect( () =>{
-        fetch(`https://hidden-scrubland-53724.herokuapp.com/orders/${email}`)
+        fetch(`https://hidden-scrubland-53724.herokuapp.com/orders/${user.email}`)
         .then(res => res.json())
         .then(data => setOrders(data));
-    },[]);
+    },[user.email]);
 
     const handleDelete = id => {
         const confirmation = window.confirm("Are you sure to delete!!");
@@ -56,9 +55,7 @@ const MyOrder = () => {
                             </tr>
                         ))
                     }
-                
                 </tbody>
-                
             </Table>
         </div>
     );

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import Package from '../Package/Package';
+import Package from '../Home/Package/Package';
 
-const Packages = () => {
+const OurPackages = () => {
     const [packages, setPackages] = useState([]);
     useEffect(()=>{
         fetch('https://hidden-scrubland-53724.herokuapp.com/packages/')
@@ -18,15 +17,14 @@ const Packages = () => {
                     packages.length === 0 ? 
                     <Spinner animation="border" variant="primary" />
                     : 
-                    packages.slice(0,6).map(p =><Package
+                    packages.map(p =><Package
                     key={p._id}
                     packages={p}
                     ></Package>)
                 }
             </div>
-            <Link to='/ourpackage'><button className='btn btn-success'>See More</button></Link>
         </div>
     );
 };
 
-export default Packages;
+export default OurPackages;

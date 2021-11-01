@@ -19,7 +19,8 @@ const PlaceOrder = () => {
         user: data.name,
         email: data.email,
         city: data.city,
-        phone: data.phone
+        phone: data.phone,
+        
         }
         axios.post('https://hidden-scrubland-53724.herokuapp.com/orders', orderData)
         .then(res =>{

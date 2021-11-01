@@ -9,6 +9,7 @@ import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 import ManageOrder from './components/ManageOrder/ManageOrder';
 import MyOrder from './components/MyOrder/MyOrder';
 import NotFound from './components/NotFound/NotFound';
+import OurPackages from './components/OurPackages/OurPackages';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 import AuthProvider from './contexts/AuthProvider';
 
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route  path='/home'>
             <Home></Home>
+          </Route>
+          <Route  path='/ourpackage'>
+            <OurPackages></OurPackages>
           </Route>
           <PrivateRoute  path='/addpackage'>
             <AddPackage></AddPackage>
