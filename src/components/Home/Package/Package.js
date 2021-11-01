@@ -8,7 +8,7 @@ const Package = ({packages}) => {
         <div className='col-lg-4 col-md-4 co-sm-6 col-12 my-3'>
             <CardGroup>
                 <Card>
-                    <Card.Img variant="top" src={img} />
+                    <Card.Img variant="top" src={img} alt= 'package-image' />
                     <Card.Body>
                     <Card.Title className='text-success'>{title}</Card.Title>
                     <Card.Title className='text-primary'>
