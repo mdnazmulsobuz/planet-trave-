@@ -35,7 +35,7 @@ const PlaceOrder = () => {
         .then(res=>res.json())
         .then(data =>setPack(data));
 
-    }, []);
+    }, [packageId]);
 
 
     return (

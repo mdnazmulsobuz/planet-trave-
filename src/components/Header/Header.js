@@ -18,7 +18,7 @@ const Header = () => {
                               <>
                             <Nav.Link as={Link} to="/addpackage">Add Package</Nav.Link>
                             <Nav.Link as={Link} to="/manageorder">Manage Order</Nav.Link>
-                            <Nav.Link as={Link} to="/orders">My Order</Nav.Link>
+                            <Nav.Link as={Link} to='/orders/'>My Order</Nav.Link>
                             <Nav.Link onClick={logOut} bg='light'>Logout</Nav.Link>
                             <Button className='btn btn-light'>{user.displayName}</Button>
                             </>

@@ -1,34 +1,36 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 
 const MyOrder = () => {
+
     const [orders, setOrders] = useState([]);
 
+    const email = "sobuz287@gmail.com"; 
+    
     useEffect( () =>{
-        fetch('http://localhost:5000/orders')
+        fetch(`http://localhost:5000/orders/${email}`)
         .then(res => res.json())
         .then(data => setOrders(data));
     },[]);
 
     const handleDelete = id => {
+        const confirmation = window.confirm("Are you sure to delete!!");
         const url = `http://localhost:5000/orders/${id}`;
+        if (confirmation){
         fetch(url, {
             method: 'DELETE'
         })
         .then(res =>res.json())
         .then(data => {
-            if(data.deletedCount){
-                alert('Successfully Delted')
-                const remaining = orders.filter(order => order._id !== id);
-                setOrders(remaining);
-            }
+            const remaining = orders.filter(order => order._id !== id);
+            setOrders(remaining);
         })
+    }
     }
     return (
         <div className='container py-5 my-5'> 
             <h2 className='text-primary'>Order Summary</h2>
-            <h4 className='text-success'>Total Order:{orders.length}</h4>
+            <h4 className='text-success'>Total Order:{orders.length}</h4> 
             <Table responsive>
                 <thead>
                     <tr>
@@ -41,8 +43,9 @@ const MyOrder = () => {
                 </thead>
                 <tbody>
                     {
-                        orders.map((order)=>(
-                            <tr>
+                        orders.map((order)=>( 
+                            
+                            <tr key ={order._id}>
                                 <td> {order._id}</td>
                                 <td className='text-success fs-5'>{order.name}</td>
                                 <td className='text-danger'>Pending</td>
@@ -53,11 +56,7 @@ const MyOrder = () => {
                             </tr>
                         ))
                     }
-                    <tr>
-                        <th scope="row"></th>
-                        <td colspan="3"><strong>Total Order Amount</strong></td>
-                        <td><strong>$.00</strong></td>
-                    </tr>
+                
                 </tbody>
                 
             </Table>
