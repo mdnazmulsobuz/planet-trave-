@@ -6,7 +6,7 @@ import './AddPackages.css';
 const AddPackage = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data =>{
-        axios.post('http://localhost:5000/packages', data)
+        axios.post('https://hidden-scrubland-53724.herokuapp.com/packages', data)
         .then(res =>{
             if(res.data.insertedId){
                 alert('Sucessfully Added Package');

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
@@ -5,7 +6,7 @@ import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
 const PlaceOrder = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const {user} = useAuth();
     const {packageId} = useParams();
     const [pack, setPack] = useState({});
@@ -18,20 +19,15 @@ const PlaceOrder = () => {
         city: data.city,
         phone: data.phone
         }
-        fetch('http://localhost:5000/orders', {
-            method: 'POST',
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(orderData)
-        })
-        .then(res=>res.json())
-        .then(result =>{
-            
+        axios.post('http://localhost:5000/orders', orderData)
+        .then(res =>{
+            if(res.data.insertedId){
+                alert('Order Submitted. Sucessfully Added On My Order.');
+                reset();
+            }
         })
     };
   
-    
     useEffect(()=>{
         fetch(`https://hidden-scrubland-53724.herokuapp.com/packages/${packageId}`)
         .then(res=>res.json())
