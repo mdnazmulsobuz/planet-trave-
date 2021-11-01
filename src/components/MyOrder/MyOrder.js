@@ -8,14 +8,14 @@ const MyOrder = () => {
     const email = "sobuz287@gmail.com"; 
     
     useEffect( () =>{
-        fetch(`http://localhost:5000/orders/${email}`)
+        fetch(`https://hidden-scrubland-53724.herokuapp.com/orders/${email}`)
         .then(res => res.json())
         .then(data => setOrders(data));
     },[]);
 
     const handleDelete = id => {
         const confirmation = window.confirm("Are you sure to delete!!");
-        const url = `http://localhost:5000/orders/${id}`;
+        const url = `https://hidden-scrubland-53724.herokuapp.com/orders/${id}`;
         if (confirmation){
         fetch(url, {
             method: 'DELETE'

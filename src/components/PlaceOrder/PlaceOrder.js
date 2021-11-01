@@ -21,7 +21,7 @@ const PlaceOrder = () => {
         city: data.city,
         phone: data.phone
         }
-        axios.post('http://localhost:5000/orders', orderData)
+        axios.post('https://hidden-scrubland-53724.herokuapp.com/orders', orderData)
         .then(res =>{
             if(res.data.insertedId){
                 alert('Order Submitted. Sucessfully Added On My Order.');
